@@ -1,0 +1,47 @@
+div#newgrounds-webring {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: calc(88px * 3);
+}
+
+div#newgrounds-webring img.background {
+  position: relative;
+  width: calc(88px * 3);
+  height: calc(31px * 3);
+}
+
+div#newgrounds-webring img.outline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+div#newgrounds-webring div.footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: black;
+  padding-top: 4px;
+  padding-bottom: 8px;
+}
+
+div#newgrounds-webring a {
+  display: flex; /* Remove height being 100% */
+}
+
+div#newgrounds-webring a.prev-button:focus,
+div#newgrounds-webring a.prev-button:hover {
+  content: url("button-prev-selected.png");
+}
+
+div#newgrounds-webring a.next-button:focus,
+div#newgrounds-webring a.next-button:hover {
+  content: url("button-next-selected.png");
+}
+
+div#newgrounds-webring a.label:focus,
+div#newgrounds-webring a.label:hover {
+  content: url("button-label-selected.png");
+}

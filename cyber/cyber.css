@@ -1,0 +1,80 @@
+
+		@keyframes linkcolor {
+			0%{color:white;}
+			50%{color:blue;}
+			100%{color:white;}
+		}
+		body {
+			background-image: URL("./images/tl_dlc_vw_casino_floor_01.png");
+			text-align:right;
+			color:white;
+		}
+		.banner {
+			width:80%;
+			height:250px;
+			margin:auto;
+			display:block;
+			border-thickness:30px;
+			border-style:solid;
+			border-color:white;
+		}
+		.sidebar {
+			width:10%;
+			margin-top:15px;
+			margin-right:10%;
+
+			float:right;
+		}
+		.navmap {
+			
+			margin-bottom:15px;
+			padding-bottom:50px;
+
+			border-thickness:10px;
+			border-style:solid;
+			border-color:white;
+		}
+		.mainbody {
+			width:68%;
+			margin-top:15px;
+			margin-left:10%;
+			float:left;
+
+			padding-bottom:50px;
+			padding-right:20px;
+
+			border-thickness:10px;
+			border-style:solid;
+			border-color:white;
+		}
+		a {
+			animation-name:linkcolor;
+			animation-duration:0.5s;
+			animation-iteration-count:infinite;
+
+			font-size:25px;
+			
+			transition:1s;
+			display:block;
+		}
+		a:hover {
+			animation-duration:0s;
+
+		}
+		.sidebar img {
+			height:50px;
+			display:inline;
+		}
+
+		h1 {
+			font-size:50px;
+		}
+
+		.stuffgrid {
+			display:flex;
+			flex-wrap:wrap;
+		}
+		.stuffgrid img {
+			width:300px;
+			height:300px;
+		}

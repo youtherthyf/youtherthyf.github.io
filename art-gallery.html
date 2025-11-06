@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ara">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>الصالون</title>
+    <link rel="stylesheet" href="mainpage.css">
+
+    <style>
+      body {
+		  background-image:url('./images/jd_dlc_h3_mezz_floor_wood_d.png');
+      }
+      @Keyframes fadeEffect {
+        from {opacity: 0; margin-top:50%;}
+        to {opacity: 1;}
+      }
+      @Keyframes fadeEffect2 {
+        from {opacity:0;}
+        to {opacity:1;}
+      }
+
+      button, input[type=submit] {
+        border-radius:0px;
+        background-color:red;
+        border-style:none;
+        text-align:center;
+        color:white;
+        font-weight: bold;
+        padding:10px;
+        flex: 5 5 20px;
+      }
+      button:hover, input[type=submit]:hover {
+        background-color:white;
+        color:red;
+      }
+    .tabcontent {
+      display: none;
+      animation: fadeEffect 2s;
+      background-color:#00000000;
+    }
+    .content {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      background-color:#00000000;
+    }
+
+    .img-container {
+      width:370px;
+      height:370px;
+      animation: fadeEffect 3s;
+      display:inline-block;
+      background-size: cover;
+      background-position: center;
+      transition: box-shadow 0.3s ease-in-out;
+      text-align: center;
+      flex: 5 5 200px;
+    }
+    .img-container:hover {
+        box-shadow: 0px 0px 40px 20px #FC5D38;
+        position: relative;
+        z-index: 100;
+    }
+    .img-viewer {
+        background-color:rgba(0,0,0,0.5);
+        height:100%;
+        width:100%;
+        position:fixed;
+        bottom:0;
+        display:none;
+        animation: fadeEffect2 0.5s;
+        z-index: 200;
+        color:white;
+        text-align:center;
+        font-size:40px;
+        overflow: scroll;
+      }
+      video {
+        width:370px;
+        box-shadow: 0px 0px 0px 0px #FC5D38;
+        transition: box-shadow 0.3s ease-in-out;
+        background-color:#000000Af;
+        flex: 5 5 200px;
+      }
+      video:hover {
+        box-shadow: 0px 0px 40px 20px #FC5D38;
+      }
+
+      @Keyframes movecurtain1 {
+        0% {left:0};
+        50% {left:-44%};
+        75% {left:-38%};
+        100% {left:-44%};
+      }
+      @Keyframes movecurtain2 {
+        0% {right:0};
+        50% {right:-44%};
+        75% {right:-38%};
+        100% {right:-44%};
+      }
+      .curtain {
+        height:100%;
+        width:50%;
+        position:fixed;
+        z-index:200;
+		background-image: url('./images/wsh-metallic-red434.gif');
+        bottom:0;
+        animation-timing-function: ease-in-out;
+      }
+
+	.langcontainer {
+		width:100%;
+		margin-top:20px;
+		margin-left:20px;
+		position:fixed;
+	}
+	.langcontainer img {
+		width:50px;
+		display:inline-block;
+	}
+	@keyframes spin {
+		from {rotate:0deg;}
+		to {rotate:360deg;}
+	}
+	.ibutton:hover {
+		animation-name: spin;
+		animation-duration: 2s;
+	}
+    </style>
+  </head>
+  <body onload="firstvisit()" onload="setlang()">
+    <main>
+      <!-- buttons-->
+	  <div class="tab langara" style="margin-top:-5px;background-image:url('/images/gz_v_g2_wood01.png')">
+	<div class="langcontainer">
+
+		<p style="text-align:left;color:white;">lang:</p>
+		<img src="images/AE234FQYEUAXEXOQDUTG5SJEIZHZDMQU.gif" class="langeng" onclick="switchlang('langeng')" style="display:none;">
+		<img src="images/3A7H7J2DTYKNNKTIORTO3EXNWCTHIT2G.gif" style="filter:grayscale(100%);display:none;" class="ibutton langeng" onclick="switchlang('langara')">
+
+		<img src="images/AE234FQYEUAXEXOQDUTG5SJEIZHZDMQU.gif" style="filter:grayscale(100%);" class="ibutton langara" onclick="switchlang('langeng')">
+		<img src="images/3A7H7J2DTYKNNKTIORTO3EXNWCTHIT2G.gif" class="langara" onclick="switchlang('langara')">
+
+	</div>
+        <h1>اهلا وسهلا في الصالون</h1>
+
+        <div style="background-color:#00000000;display:flex;flex-wrap:wrap;justify-content:space-evenly;gap:2px;">
+        <button class="tablinks" onclick="opentab('home')">معلومات</button>
+        <button class="tablinks" onclick="opentab('non-digital')">رسم</button>
+        <button class="tablinks" onclick="opentab('animation')">رسوم متحركة</button>
+        <button class="tablinks" onclick="opentab('sketches')">سكتشات</button>
+        </div>
+      </div>
+
+	  <div class="tab langeng" style="margin-top:-5px;background-image:url('/images/gz_v_g2_wood01.png');display:none;">
+	<div class="langcontainer">
+
+		<p style="text-align:left;color:white;">lang:</p>
+		<img src="images/AE234FQYEUAXEXOQDUTG5SJEIZHZDMQU.gif" class="langeng" onclick="switchlang('langeng')" style="display:none;">
+		<img src="images/3A7H7J2DTYKNNKTIORTO3EXNWCTHIT2G.gif" style="filter:grayscale(100%);display:none;" class="ibutton langeng" onclick="switchlang('langara')">
+
+		<img src="images/AE234FQYEUAXEXOQDUTG5SJEIZHZDMQU.gif" style="filter:grayscale(100%);" class="ibutton langara" onclick="switchlang('langeng')">
+		<img src="images/3A7H7J2DTYKNNKTIORTO3EXNWCTHIT2G.gif" class="langara" onclick="switchlang('langara')">
+
+	</div>
+        <h1>welcome to the salon</h1>
+
+        <div style="background-color:#00000000;display:flex;flex-wrap:wrap;justify-content:space-evenly;gap:2px;">
+        <button class="tablinks" onclick="opentab('home')">info</button>
+        <button class="tablinks" onclick="opentab('non-digital')">art</button>
+        <button class="tablinks" onclick="opentab('animation')">animation</button>
+        <button class="tablinks" onclick="opentab('sketches')">sketches</button>
+        </div>
+      </div>
+
+
+      <!-- tab content-->
+      <div id="home" class="tabcontent" style="display:block;color:white;">
+		<div class="tab langara">
+			<h2>معلومات معلوماتية أولية</h2>
+			<p style="text-align:center;">ده معرض لكل حاجة بعملها. شوية من الاعمال هنا ممكن تكون غير مناسبة لكل الناس لاحتوائها علي عنف او تعري.. انا متفهم بالكامل, زرار الرجوع فوق اهو جمب سندوق البحث</p>
+			<p style="text-align:center;">كل اعمالي الشخصية مرخصة CC-BY-SA 4.0.</p>
+			<p style="text-align:center;">انا عامل <a href="./newrss.xml">تنسيق أر إس إس</a> للعاوز يعرف وقت ما احدث الصالون</p>
+		</div>
+		<div class="tab langeng" style="display:none;">
+			<h2>informational information</h2>
+			<p style="text-align:center;">this is a gallery for everything i make. some works here may not be suitable for everyone due to nudity or violence.. i totally understand, the backwards button is right next to the search box</p>
+			<p style="text-align:center;">all my work is CC-BY-SA 4.0.</p>
+			<p style="text-align:center;">i have an <a href="./newrss.xml">RSS feed</a> to know when i update the salon</p>
+		</div>
+	  </div>
+
+      <div id="animation" class="tabcontent">
+          <div class="content">
+			  <video controls> <source src="./images/video/balls.mp4" type=""> </video>
+			  <video controls> <source src="./images/video/when you get a portal ring to visit sonic.mp4" type=""> </video>
+			  <video controls> <source src="./images/video/morph.mp4" type=""> </video>
+			  <video controls> <source src="./images/video/gemknight-fusion.mp4" type=""> </video>
+          </div>
+      </div>
+
+      <div id="non-digital" class="tabcontent">
+          <div class="content">
+			  <div class="img-container" style="background-image:url('images/non-digital/bootloop.png');" onclick="openviewer(this,`بووت لووب لعبة مسلية اوي.`)"></div>
+			  <div class="img-container" style="background-image:url('images/digital/gunsmith bitch.png');" onclick="openviewer(this,`شخبطة لبانتي و ستوكمج. الموسم الجديد حلو, الوييب الأشقر مزعج, بس غير كده كل الشخصيات التنين عجبني`)"></div>
+			  <div class="img-container" style="background-image:url('images/non-digital/samerexci2.jpeg');" onclick="openviewer(this,`تمرين رسم كوميكس.`)"></div>
+			  <div class="img-container" style="background-image:url('images/non-digital/mahmoudsalah.jpeg');" onclick="openviewer(this,`إهداءلأراجوزي المفضل الجديد, محمود صلاح. الحتي في الحقائق البصيطة, زي تجسس الشركات, لازم, كتر خيره, يرفه عننا. متقلقش عزيزي القارئ الاجهزة مش محتاجة تقري إشارات مخك, الخشرمية مكروفون و جهاز متصل بالشبكة تاعتك عامله الواجب كتر خيرها`)"></div>
+			  <div class="img-container" style="background-image:url('images/non-digital/Alexandriawhy.jpeg');" onclick="openviewer(this,`a poster design assignment for by yosef shaheen. i could have sworn i saw an upload of it with english subtitles... but i can't find it anymore :/ `)"></div>
+			  <div class="img-container" style="background-image:url('images/non-digital/rip.jpeg');" onclick="openviewer(this,`i once knew a fruit bat, but i don't have a name for him, who really admired eagles. he loved their wings and feathers, which per their words were lighter than his heart. so much he did he grew to talk and even think in their tounge. even as they stole his fruit or clawed his fellow rodents he still believed them. they said no, it was the other eagles that were evil, we don't partace in their tyranny, and he believed them. yet over time, as he got closer and listened more, their feathers seemed not as light as they claimed, they were as rough and as heavy as the other eagles. they spoke of the madness of the other eagles, which to be fair i would agree with, yet they would go and inforce their own displays of delirium, every oftem acting out the same nonsense. they spoke to him of loving rodents, as long as the bats tried to become eagles of course, a bat who tried not to be an eagle was clawed... for the bats' good of course. i couldn't give you an exact date, but a few months ago i found him in my room. someone scratched the eagles he admired and they acted exactly as the other eagles did, the sight for it pushed him to suicide. he has been rotting in my room ever since. normally when i find a dead body i don't touch it and watch it as it decomposes, but i think now is about time i laid him to rest, leaving his body here only made my room stink and attracted flies i am still dealing with. even tho he was a moron, i am not an eagle, so i gave him a proper mastaba, for i am a bat.`)"></div>
+          <div class="img-container" style="background-image:url('images/non-digital/fixed-cover.jpeg');" onclick="openviewer(this,`cover design assignment for uni. book is <a href='https://www.penguinrandomhouse.com/books/92223/lord-of-souls-an-elder-scrolls-novel-by-greg-keyes/'>lord of souls</a> by greg keyes`)"></div>
+          <div class="img-container" style="background-image:url('images/non-digital/WhatsApp Image 2025-02-24 at 7.29.06 PM.jpeg');" onclick="openviewer(this,'intaglio printed self portrait 3/3')"></div>
+          <div class="img-container" style="background-image:url('images/non-digital/WhatsApp Image 2025-02-24 at 7.29.07 PM.jpeg');" onclick="openviewer(this,'intaglio printed self portrait 2/3')"></div>
+          <div class="img-container" style="background-image:url('images/non-digital/print1.png');" onclick="openviewer(this,'intaglio printed self portrait 1/3')"></div>
+          <div class="img-container" style="background-image:url('images/non-digital/la vista cafe owner.jpg');" onclick="openviewer(this,'portrait of the guy who owns the cafe next to me. true story i picked someone from the cafe randomly to draw and found out he owned the place mid way through drawing it')"></div>
+          <div class="img-container" style="background-image:url('images/non-digital/2818367_youtherthyf_junk-warrior-ink-drawing.jpg');" onclick="openviewer(this,'is junk warrior a good card? no. is it fun to make a stupid build specifically to jumk fist one shot my opponent? OH HELL YEAH')"></div>
+          <div class="img-container" style="background-image:url('images/non-digital/tumblr_66a9ddbdb551c0639689acc8cdf0c0b7_9d4e2b23_540.jpg');" onclick="openviewer(this,'zoe with spagitti hair... no more explination needed i think')"></div>
+          <div class="img-container" style="background-image:url('images/non-digital/lino sun.png');" onclick="openviewer(this,'my interpretation of the sun tarot card for a class in year 2. i might come back to this and make a full set idk')"></div>
+          <div class="img-container" style="background-image:url('images/digital/spade.png');" onclick="openviewer(this,'artfight 2023 attack')"></div>
+          <div class="img-container" style="background-image:url('images/digital/ds2comic.gif');" onclick="openviewer(this,'still unsure how to feel about ds2 ng+ cycles. stuff like this are legit awesome... but then you have iron keep')"></div>
+          <div class="img-container" style="background-image:url('images/digital/berserk liam.png');" onclick="openviewer(this,'still excited for monster-con')"></div>
+          <div class="img-container" style="background-image:url('images/digital/ella.png');" onclick="openviewer(this,'art trade with vanvelca on newgrounds')"></div>
+          <div class="img-container" style="background-image:url('images/digital/nightmare magician.png');" onclick="openviewer(this,'illusion was fun last time i played it. he is lowkey useless if you want to actually compete with it but i still put him in my deck for lols')"></div>
+        </div>
+      </div>
+
+      <div id="sketches" class="tabcontent">
+          <div class="content">
+			  <div class="img-container" style="background-image:url('images/sketches/fmttm-sketch2.jpeg');" onclick="openviewer(this,`سكتشات لشغل الجامعة.`)"></div>
+			  <div class="img-container" style="background-image:url('images/sketches/fmttm-sketch1.jpeg');" onclick="openviewer(this,`سكتشات لشغل الجامعة.`)"></div>
+			  <div class="img-container" style="background-image:url('images/non-digital/bootloop-sketch.png');" onclick="openviewer(this,`بووت لووب لعبة مسلية اوي.`)"></div>
+			  <div class="img-container" style="background-image:url('images/sketches/WhatsApp Image 2025-08-22 at 2.42.51 AM.jpeg');" onclick="openviewer(this,'')"></div>
+			  <div class="img-container" style="background-image:url('images/sketches/samirex.jpeg');" onclick="openviewer(this,'تمرين علي طريقة الرسم بتاعت مجلة سمير')"></div>
+			  <div class="img-container" style="background-image:url('images/sketches/roatated-monster-edgerunner-sketch.jpeg');" onclick="openviewer(this,'monster prom x edgerunners... there is nothing deeper to it just monster prom x edgerunners... also aparently they made an edgerunners prequel manga about beca and pilar.. nice, might read it later')"></div>
+          <div class="img-container" style="background-image:url('images/sketches/ds3 character ideas.jpg');" onclick="openviewer(this,'armour/character sketches for my animation assignment. doing a ds3 animation and still deciding what to make them wear. i like the xanthos set + woldnier crown lady on the left, but need another one.')"></div>
+          <div class="img-container" style="background-image:url('images/sketches/failed-daily7.jpg');" onclick="openviewer(this,'day 7 of a failed daily sketches thing. more drawings from that one thread from day 5, this time characters belong to thetageist, perkgrok and MKSC746')"></div>
+          <div class="img-container" style="background-image:url('images/sketches/failed-daily6.jpg');" onclick="openviewer(this,'day 6 of a failed daily sketches thing. a bulgarian friend from the agora road forum told me to watch bolgarian treasure island(it is up on youtube go watch it)... is this what being neighbors with serbia does to a person s mind?')"></div>
+          <div class="img-container" style="background-image:url('images/sketches/failed-daily5.jpg');" onclick="openviewer(this,'day 5 of a failed daily sketches thing. a few months ago some people were sharing their OCs in a thread on newgrounds and describing their inspiration for the characters. characters belong to aapiarts, Ferbun, and ddnikki. this viewer was coded by an idiot(me) so i cant link to their accounts here. you will have to look them up your self')"></div>
+          <div class="img-container" style="background-image:url('images/sketches/failed-daily4.jpg');" onclick="openviewer(this,'day 4 of a failed daily sketches thing. moot kept showing up wherever i looked that day. apparently mootsonas are a thing on tiktok now..')"></div>
+          <div class="img-container" style="background-image:url('images/sketches/failed-daily3.jpg');" onclick="openviewer(this,'day 3 of a failed daily sketches thing. i could have sworn adjicator had a grab attack but maybe i hilusinated that')"></div>
+          <div class="img-container" style="background-image:url('images/sketches/failed-daily2.jpg');" onclick="openviewer(this,'day 2 of a failed daily sketches thing. more anatomy like day 1')"></div>
+          <div class="img-container" style="background-image:url('images/sketches/failed-daily1.jpg');" onclick="openviewer(this,'day 1 of a failed daily sketches thing. just anatomy training.. i suck at muscles')"></div>
+          <div class="img-container" style="background-image:url('images/sketches/IMG-20241201-WA0011.jpg');" onclick="openviewer(this,'sketch from an anatomy course i attended')"></div>
+          <div class="img-container" style="background-image:url('images/sketches/IMG-20241201-WA0012.jpg');" onclick="openviewer(this,'sketch from an anatomy course i attended')"></div>
+          <div class="img-container" style="background-image:url('images/sketches/IMG-20241201-WA0015.jpg');" onclick="openviewer(this,'sketch from an anatomy course i attended')"></div>
+        </div>
+      </div>
+
+
+    </main>
+    <section>
+      <!--image viewer-->
+      <div class="img-viewer" onclick="closeviewer()">
+        <img src="https://youtherthyf-madehouse.neocities.org/images/cat.png" alt="" style="margin-left:auto;margin-right:auto;margin-top:30px;height:70%;" class="viewer-img">
+        <p class="viewer-text" style="width:80%;margin:auto;"></p>
+      </div>
+
+      <!--curtens-->
+      <div class="curtain" style="left:-44%;animation:movecurtain1 2s;animation-timing-function: ease-in-out;"></div>
+      <div class="curtain" style="right:-44%;animation:movecurtain2 2s;animation-timing-function:ease-in-out;"></div>
+    </section>
+    
+	<script src="./langchange.js"></script>
+    <script type="application/javascript">
+      // image viewer:
+      function openviewer(imgclicked, imgdec) {
+        
+        var imgfile = imgclicked.style.backgroundImage.replace('url("','').replace('")','');
+
+        document.getElementsByClassName('img-viewer')[0].style.display= "block";
+        document.getElementsByClassName('viewer-img')[0].src= imgfile;
+        document.getElementsByClassName('viewer-text')[0].innerHTML= imgdec;
+        
+      }
+
+      function closeviewer() {
+        document.getElementsByClassName('img-viewer')[0].style.display= "none";
+      }  
+
+      // tabs code:
+      function opentab(tabname) {
+        var i, tabs;
+
+        document.getElementsByClassName('curtain')[0].style.animation = "none";
+        document.getElementsByClassName('curtain')[1].style.animation = "none";
+        document.getElementsByClassName('curtain')[0].offsetWidth;
+        document.getElementsByClassName('curtain')[1].offsetWidth;
+        document.getElementsByClassName('curtain')[0].style.animation = "movecurtain1 2s";
+        document.getElementsByClassName('curtain')[1].style.animation = "movecurtain2 2s";
+        tabs = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        } 
+        document.getElementById(tabname).style.display = "block";
+        }
+    </script>
+  </body>
+</html>

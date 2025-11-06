@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>giving value to in-animate things</title>
+    <link href="mainpage.css" rel="stylesheet">
+  </head>
+  <style>
+    body {
+      background-image:url('images/simcity2000.gif');
+        background-size:cover;
+    }
+    .mainbody {
+      width:80%;
+      background-color:#FAE7CC;
+
+      margin:auto;
+      margin-top:40px;
+      display:flex;
+      height:600px;
+    }
+    .sidebar {
+      color:white;
+      text-align:center;
+      width:10%;
+    }
+    .tabcontent {
+      height:100%;
+      width:90%;
+      float:right;
+      display:none;
+      color:#D99424;
+      text-align:center;
+      overflow:scroll;
+    }
+    .sidebar button {
+      width:100%;
+      height:120px;
+      background-color:#D99424;
+      border:0px;
+      color:#FAE7CC;
+      transition:ease-in 0.1s;
+    }
+    .sidebar button:hover {
+      background-color:#A36500;
+    }
+    .tabcontent h1 {
+      color:#D99424;
+    }
+    .tabcontent h2 {
+      margin-top:5px;
+      margin-bottom:5px;
+      margin-left:40px;
+      float:left;
+      color:#D99424;
+    }
+    .tabcontent hr {
+      width:90%;
+      background-color:#D99424;
+    }
+    .tabcontent p {
+      text-align:left;
+      margin-left:80px;
+      margin-top:5px;
+      margin-bottom:5px;
+    }
+    .tabcontent img {
+      width:300px;
+    }
+    video {
+      width:300px;
+    }
+    input {
+      text-align:left;
+      margin:0px;
+      margin-left:80px;
+    }
+  </style>
+  <body>
+    <h1>want something made?</h1>
+    <h2>i can make it</h2>
+    <div class="mainbody">
+      <div class="sidebar">
+        <button onclick="opentab('faq')">faq</button>
+        <button onclick="opentab('3D')">3D</button>
+        <button onclick="opentab('2D')">2D</button>
+        <button onclick="opentab('animation')">animation</button>
+        <button onclick="opentab('com-forum')">contact now</button>
+      </div>
+      
+      <div id="faq" class="tabcontent" style="display:inline;">
+        <h1>The rules / FAQ</h1>
+        <hr>
+        <h2>What will i NOT work on?</h2><br><br>
+        <p>porn</p>
+        <p>fetish content</p>
+        <p>generative AI projects</p>
+        <p>NFT projects</p>
+        <h2>What will i work on?</h2><br><br>
+        <p>anything not mentioned above(gore, violence, ect. is fine)</p>
+        <p>games</p>
+        <p>comics</p>
+        <p>ads</p>
+        <p>animated films</p>
+        <h2>How do i accept payment?</h2><br><br>
+        <p>currently i only accept payment through paypal</p>
+        <h2>How will payment go?</h2><br><br>
+        <p>you pay 50% at the start, and the other 50% work is done</p>
+        <p>if work is cancelled for any reason i will re-fund you the 50%</p>
+        <h2>How will we communicate?</h2><br><br>
+        <p>i prefer communication through Email(like from the forum on this page)</p>
+        <p>if you prefer another method for communication(discord, irc, matrix, ect.) tell me and i will reach out</p>
+      </div>
+
+      <div id="3D" class="tabcontent">
+        <h1>3D models</h1>
+        <hr>
+        <h2>3D character models</h2><br><br>
+        <p>i will make game/animation ready character models</p>
+        <p>character is fully rigged, textured, and prepared for use</p>
+        <img src="images/2025-01-23_14-27.png" alt="">
+        <img src="images/2025-01-23_14-28.png" alt="">
+        <img src="images/levivo&#32;final&#32;example.png" alt="">
+      </div>
+
+      <div id="2D" class="tabcontent">
+        <h1>2D and traditional art</h1>
+        <hr>
+        <h2>2d traditional ink</h2><br><br>
+        <p>traditionally black and white ink art</p>
+        <img src="images/non-digital/2818367_youtherthyf_junk-warrior-ink-drawing.jpg" alt="">
+        <img src="images/non-digital/tumblr_66a9ddbdb551c0639689acc8cdf0c0b7_9d4e2b23_540.jpg" alt="">
+        <hr>
+        <h2>2D digital art</h2><br><br>
+        <p>digital illustrations</p>
+        <img src="images/digital/spade.png" alt="">
+        <img src="images/digital/berserk&#32;liam.png" alt="">
+        <img src="images/digital/nightmare&#32;magician.png" alt="">
+        <hr>
+        <h2>sketches</h2><br><br>
+        <p>digital or irl sketches(up to you)</p>
+        <p>simple to no colors</p>
+        <img src="images/sketches/failed-daily5.jpg" alt="">
+        <img src="images/sketches/failed-daily4.jpg" alt="">
+      </div>
+
+      <div id="animation" class="tabcontent">
+        <h1>animation</h1>
+        <hr>
+        <h2>3D animation</h2><br><br>
+        <p>stylized 3D animation</p>
+        <video controls> <source src="https://youtherthyf.github.io/images/balls.mp4" type=""> </video>
+        <video controls> <source src="https://youtherthyf.github.io/images/when%20you%20get%20a%20portal%20ring%20to%20visit%20sonic.mp4" type=""> </video>
+        <hr>
+        <h2>2D animation</h2><br><br>
+        <p>2D frame by frame digital animation</p>
+        <p>i can work on keyframes, cleaning work, coloring, ect.</p>
+        <video controls> <source src="https://youtherthyf.github.io/morph.mp4" type=""> </video>
+        <video controls> <source src="https://youtherthyf.github.io/gemknight-fusion.mp4" type=""> </video>
+      </div>
+
+      <div id="com-forum" class="tabcontent">
+        <h1>contact me now</h1>
+        <hr>
+        <h2>the best way to contact me is on my email</h2><br><br>
+        <p>please read my FAQ before emailing me</p>
+        <a href="mailto:youtherthyf.commission@gmail.com"><p>youtherthyf.commission@gmail.com</p></a>
+        <p>if you prefer discord. my username is:youtherthyf</p>
+        <br>
+        <p>am currently working on a full form to make contact easier but that is still a work in progress</p>
+      </div>
+
+    </div>
+  </body>
+
+  <script>
+      function opentab(tabname) {
+        var i, tabs;
+        tabs = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        } 
+        document.getElementById(tabname).style.display = "block";
+        }
+  </script>
+</html>

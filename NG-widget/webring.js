@@ -1,0 +1,303 @@
+/**
+ * To prevent function or variable name clashes, like if two webring scripts
+ * both use a constant named "members," all variables and functions used by
+ * this script is wrapped in this object.
+ * @constant
+ * @type {object}
+ */
+const NGWebring = {
+  ASSETS: `https://youtherthyf-madehouse.neocities.org/NG-widget/assets`, // INSERT ASSETS URL HERE, DO NOT END WITH `/`
+  BACKGROUNDS: `https://youtherthyf-madehouse.neocities.org/NG-widget/backgrounds`, // INSERT BACKGROUNDS URL HERE, DO NOT END WITH `/`
+  INFO_PAGE: `https://www.newgrounds.com/bbs/topic/1542451`,
+
+  /**
+   * Contains all the members' username, their website, and their buttons.
+   * @constant
+   * @type {object[]}
+   */
+  members: [
+    {
+      name: "youtherthyf",
+      website: "http://youtherthyf.whf.bz/",
+      button: "https://youtherthyf-madehouse.neocities.org/mybutton.gif",
+    },
+    {
+      name: "DDNikki",
+      website: "https://ddnikki.nekoweb.org/",
+      button: "https://ddnikki.nekoweb.org/images/nikkibutton.gif",
+    },
+    {
+      name: "Gary",
+      website: "https://garyswod.nekoweb.org/",
+      button: "https://garyswod.nekoweb.org/images/8831.gif",
+    },
+    {
+      name: "Aplove",
+      website: "https://aplove.neocities.org/",
+      button: `https://aplove.neocities.org/images/neocities_aplove_88_31.png`,
+    },
+    {
+      name: "Nova Galaxium",
+      website: "https://pastel-skies.nekoweb.org/",
+      button:
+        `https://pastel-skies.nekoweb.org/dembuttons/Nova_Galaxium_Button.gif/`,
+    },
+    {
+      name: "crtstatic",
+      website: "https://crtstatic.net/",
+      button:
+        `https://crtstatic.net/!assets/home/crtstatic_button.gif`,
+    },
+    {
+      name: "cigg",
+      website: "https://digitalcasualties.nekoweb.org/",
+      button:
+        `https://digitalcasualties.nekoweb.org/button.png`,
+    },
+    {
+      name: "Hydromecha",
+      website: "https://hydromecha.website/",
+      button:
+        `https://hydromecha.website/assets/sitebuttons/hydrobutton.png`,
+    },
+    {
+      name: " Gildrom",
+      website: "https://www.gildrom.com/",
+      button:
+        `https://www.gildrom.com/button.gif`,
+    },
+    {
+      name: "baka",
+      website: "https://bakartridges-site.neocities.org/",
+      button:
+        `https://bakartridges-site.neocities.org/88x31.gif`,
+    },
+    {
+      name: "ralf98",
+      website: "https://xxhalfemptyxx.neocities.org/",
+      button:
+        `https://xxhalfemptyxx.neocities.org/images/ezgif-2a0feac4540c58.gif`,
+    },
+    // { Copy and add a new member above this line ^^^
+    //   name: "",
+    //   website: "", // <-- THE LINK MUST END WITH `/` OTHERWISE THE CODE MAY NOT WORK
+    //   button: ""
+    // },
+  ],
+
+  /**
+   * Returns an array of all members' website links.
+   * @returns {string[]}
+   */
+  websites: () => {
+    return NGWebring.members.map((member) => member.website);
+  },
+
+  /**
+   * Get an attribute used within the script tag. If the attribute does not
+   * exist, null is returned.
+   * @param {string} attr Find the value of the attribute tag used.
+   * @returns {(string | null)}
+   */
+  attribute: (attr) => {
+    return document.currentScript.getAttribute(attr);
+  },
+
+  /**
+   * Return the currently connected website in the format of
+   * `https://example.com/`.
+   * @returns {string}
+   */
+  currentWebsite: () => {
+    // return NGWebring.websites()[0]; // Uncomment me when being tested on
+    return `https://${window.location.host}/`;
+  },
+
+  /**
+   * Return the website link of the next member.
+   * @returns {string}
+   */
+  nextWebsite: () => {
+    const sites = NGWebring.websites();
+    const index = (sites.indexOf(NGWebring.currentWebsite()) + 1) %
+      sites.length;
+
+    return `${sites[index]}`;
+  },
+
+  /**
+   * Return the website link of the previous member.
+   * @returns {string}
+   */
+  prevWebsite: () => {
+    const sites = NGWebring.websites();
+    const index = sites.indexOf(NGWebring.currentWebsite()) - 1;
+
+    if (index < 0) {
+      return sites[sites.length - 1];
+    }
+    return sites[index];
+  },
+
+  /**
+   * Randomly return a website link of a member.
+   * @returns {string}
+   */
+  randomWebsite: () => {
+    // Filter out the current site from the list of websites so it doesn't get
+    // accidently picked.
+    const sites = NGWebring.websites().filter((site) => site !== origin);
+    const index = Math.floor(Math.random() * sites.length);
+    return `${sites[index]}`;
+  },
+
+  /**
+   * Return the background URL if the `background` attribute is used in the
+   * script tag. If no attribute exists, the default background is used.
+   * @returns {string}
+   */
+  background: () => {
+    const bg = NGWebring.attribute("background");
+    return bg === null ? `${NGWebring.BACKGROUNDS}/default.png` : bg;
+  },
+
+  /**
+   * Return an alt attribute used by the background img tag, which is extracted
+   * by the attribute `backgroundalt` in the script tag. If no attribute exists,
+   * the default background is used.
+   * @returns {string}
+   */
+  backgroundAlt: () => {
+    const alt = NGWebring.attribute("backgroundalt");
+    return alt === null
+      ? "Newgrounds' Pico mascot holding a handgun and microphone and against a beaming orange and yellow background"
+      : alt;
+  },
+
+  /**
+   * Create the `None` design on the `element` parameter.
+   * @param {Element} element The element that the design uses as a parent.
+   * @returns {void}
+   */
+  spawnDesignNone: (element) => {
+    for (const member of NGWebring.members) {
+      const anchor = document.createElement("a");
+      const img = document.createElement("img");
+
+      anchor.href = member.website;
+      anchor.style.width = img.style.width = "88px";
+      anchor.style.height = img.style.height = "31px";
+
+      img.src = member.button;
+      img.alt = `${member.name}'s website`;
+
+      anchor.appendChild(img);
+      element.appendChild(anchor);
+    }
+  },
+
+  /**
+   * Create the `Minimal` design on the `element` parameter.
+   * @param {Element} element The element that the design uses as a parent.
+   * @returns {void}
+   */
+  spawnDesignMinimal: (element) => {
+    const head = document.getElementsByTagName("head")[0];
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = `${NGWebring.ASSETS}/minimal/style.css`;
+    head.appendChild(link);
+
+    const selectedLabel = document.createElement("link");
+    const selectedPrev = document.createElement("link");
+    const selectedNext = document.createElement("link");
+
+    selectedLabel.rel = "preload";
+    selectedLabel.as = "image";
+    selectedLabel.href =
+      `${NGWebring.ASSETS}/minimal/button-label-selected.png`;
+
+    selectedPrev.rel = "preload";
+    selectedPrev.as = "image";
+    selectedPrev.href = `${NGWebring.ASSETS}/minimal/button-prev-selected.png`;
+
+    selectedNext.rel = "preload";
+    selectedNext.as = "image";
+    selectedNext.href = `${NGWebring.ASSETS}/minimal/button-next-selected.png`;
+
+    head.appendChild(selectedNext);
+    head.appendChild(selectedPrev);
+    head.appendChild(selectedLabel);
+
+    const bg = document.createElement("img");
+    const footer = document.createElement("div");
+    const label = document.createElement("a");
+    const labelImg = document.createElement("img");
+    const nextAnchor = document.createElement("a");
+    const nextAnchorImg = document.createElement("img");
+    const outline = document.createElement("img");
+    const prevAnchor = document.createElement("a");
+    const prevAnchorImg = document.createElement("img");
+
+    bg.className = "background";
+    footer.className = "footer";
+    label.className = "label";
+    nextAnchor.className = "next-button";
+    outline.className = "outline";
+    prevAnchor.className = "prev-button";
+
+    outline.src = `${NGWebring.ASSETS}/minimal/outline.svg`;
+    bg.src = NGWebring.background();
+    bg.alt = NGWebring.backgroundAlt();
+
+    label.href = NGWebring.INFO_PAGE;
+    label.target = "_top";
+    labelImg.src = `${NGWebring.ASSETS}/minimal/button-label-normal.png`;
+    labelImg.alt = "NG Webring";
+
+    prevAnchor.href = NGWebring.prevWebsite();
+    prevAnchor.target = "_top";
+    prevAnchorImg.src = `${NGWebring.ASSETS}/minimal/button-prev-normal.png`;
+    prevAnchorImg.alt = "Prev";
+
+    nextAnchor.href = NGWebring.nextWebsite();
+    nextAnchor.target = "_top";
+    nextAnchorImg.src = `${NGWebring.ASSETS}/minimal/button-next-normal.png`;
+    nextAnchorImg.alt = "Next";
+
+    label.appendChild(labelImg);
+    prevAnchor.appendChild(prevAnchorImg);
+    nextAnchor.appendChild(nextAnchorImg);
+    element.appendChild(bg);
+    element.appendChild(outline);
+    footer.appendChild(prevAnchor);
+    footer.appendChild(label);
+    footer.appendChild(nextAnchor);
+    element.appendChild(footer);
+  },
+
+  /**
+   * Create a webring on where a `div` tag with an `id` of `newgrounds-webring`
+   * exists. A `div` tag with this id is required, otherwise the code may not
+   * work.
+   *
+   * There are two designs the member can use: `none` or `minimal`, which the
+   * member chooses using the `design` attribute on the script tag.
+   * @returns {void}
+   */
+  createWebring: () => {
+    const element = document.getElementById("newgrounds-webring");
+    const design = NGWebring.attribute("design");
+
+    switch (design) {
+      case "minimal":
+        NGWebring.spawnDesignMinimal(element);
+        break;
+      default:
+        NGWebring.spawnDesignNone(element);
+        break;
+    }
+  },
+};
+
+NGWebring.createWebring();

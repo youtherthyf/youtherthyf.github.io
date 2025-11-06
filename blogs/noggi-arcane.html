@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="https://youtherthyf-madehouse.neocities.org/blogs/css/style.css" rel="stylesheet">
+  </head>
+  <style>
+    body {
+      background-image:url("https://media1.tenor.com/m/8TDvHDgEsk0AAAAd/jinx-arcane-season-2-jinx-candle-crying.gif");
+      background-size:100%;
+      background-position:500px 0%;
+      background-attachment: fixed;
+      background-repeat:no-repeat;
+      background-color:black;
+    }
+    .text-container {
+      background-color:#00000055;
+      color:white;
+      margin-left:40px;
+      margin-top:40px;
+      width:600px;
+    }
+  </style>
+  <body>
+    <div class="text-container">
+      <h1>Noggi's arcane video and it's consequences</h1>
+      <p>date:tue 2025-01-14</p>
+      <p>a while back, maybe a week ago, i watched <a href="https://www.youtube.com/watch?v=aj4_VLZM_GA" target="_blank">a video by Noggi </a> where he tried to recreate a scene from arcane using blender(mostly). it has inspired me to rework my workflow to build more of the shading in the compositore rather than the render engine it's self.</p>
+      <p>using my short shezmu animation from my maya class as a lab rat i started missing around with differet data passes. i also switched from Eevee to cycles to allow me access to more passes. with a low enough sample rate it takes around the same time to render</p>
+      <p>the original</p>
+      <img src="blog-images/2025-01-14_08-15.png" alt="" style="width:300px;">
+      <p>the done through compostion</p>
+      <img src="blog-images/2025-01-14_08-26.png" alt="" style="width:300px;">
+      <p>normally i get the cellshading from a shader node group, the basic shader to RGB into a color-ramp setup you are familiar with from every youtube tutorial except for slightly changing the tent of the shaded area or adding a texture. but here i used a normal psdf shader and did all the cellshading and color shifts in in the compositor. the advantages of this is being able to apply it to all objects in the scene at once without needing to edit all their shaders. and in case i need a specific object or part to be shaded differently i could use an object index or a mask</p>
+      <img src="blog-images/2025-01-14_08-38.png" alt="" style="width:500px;">
+      <p>as noggi explains, much better than i can, this allows me full creative freedom over the look and style. compisiting is already a must for good renders but working on passes sepratly(a flat color pass, a lighting pass, ect.) then combining them into a final render, rather than simply working on a combined image pass, allows for lighting and coloring to be edited freely.</p>
+      <p>want to remove shadows from or add them to specific parts? mask it</p>
+      <p>shading looks good on all objects except one? correct the colors on that one object instead of having to edit the material and re-render it</p>
+      <p>am still new to this workflow, and masks in general, but i can aleady see it's potencial</p>
+      <p>we will see where this goes. anyways i haven't had a proper lunch in days, no reason i just forget to eat sometimes, steak and peas anyone?</p>
+    </div>
+  </body>
+</html>

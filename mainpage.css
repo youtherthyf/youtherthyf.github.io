@@ -1,0 +1,46 @@
+/* import the hippie dippie font */
+@font-face { font-family:hippie; src:url("bellybeans.ttf");}
+
+hr {
+  height: 5px;
+  background-color: brown;
+  border-style:none;
+}
+
+h1, h2, h3 {
+  text-align:center;
+  margin:5px;
+  color:white;
+  font-family:sans-serif;
+  font-family: hippie;
+}
+
+h1 {
+  font-size:80px;
+}
+
+a {
+	color:#FFFFFF;
+  #color:#5C3B25;
+}
+
+body {
+  margin-left:auto;
+  margin-right:auto;
+  background-color:brown;
+}
+
+main div {
+  padding:10px;
+  margin-right:auto;
+  margin-left:auto;
+  margin-top:25px;
+  height:auto;
+  width:85%;
+  max-width:1500px;
+  background-color:#00000000;
+  color:white;
+  #background-color:#FAE7CC;
+  #color:#D99424;
+  font-family:sans-serif;
+}
